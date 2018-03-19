@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/14/first-post/">first post</a>
+      <a class="article-title" href="/2018/03/14/first-post/">RabbitMQ</a>
     </h1>
   
 
@@ -84,11 +84,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="Rabbitmq安装手册"><a href="#Rabbitmq安装手册" class="headerlink" title="Rabbitmq安装手册"></a>Rabbitmq安装手册</h1><h2 id="Windows下安装"><a href="#Windows下安装" class="headerlink" title="Windows下安装"></a>Windows下安装</h2><h3 id="一、准备条件"><a href="#一、准备条件" class="headerlink" title="一、准备条件"></a>一、准备条件</h3><p>下载rabbitmq：<a href="http://www.rabbitmq.com/download.html" target="_blank" rel="noopener">http://www.rabbitmq.com/download.html</a></p>
+<p>下载Erlang:<a href="http://www.erlang.org/downloads" target="_blank" rel="noopener">http://www.erlang.org/downloads</a></p>
+<h3 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h3><p>先安装Erlang，完全下一步即可，然后安装Rabbitmq，完全下一步即可。</p>
+<h3 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h3><p>开始菜单运行RabbitMQ Command Prompt.bat，输入rabbitmq-plugins enable rabbitmq_management来开启配置页。如果开启成功，在浏览器输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:15672</span><br><span class="line">账号：guest</span><br><span class="line">密码：guest</span><br></pre></td></tr></table></figure></p>
+<p>如果开启失败，下述两个方案均可：</p>
+<ol>
+<li>按顺序在Prompt中执行：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">rabbitmq-service stop</span><br><span class="line">rabbitmq-service remove</span><br><span class="line">rabbitmq-service install</span><br><span class="line">rabbitmq-service start</span><br><span class="line">//最后重新执行开启配置</span><br><span class="line">rabbitmq-plugins enable rabbitmq_management</span><br><span class="line">``` </span><br><span class="line">2. 删除rabbitmq数据文件夹下的文件，然后重新安装</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>打开文件夹C:\Users[用户名]\Roaming\RabbitMQ\db<br>删除其中内容<br>重新安装rabbitmq<br>//最后重新执行开启配置<br>rabbitmq-plugins enable rabbitmq_management<br><code>`</code></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/14/first-post/" data-id="cjeqj180y00018wu3ku6hf0n9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/14/first-post/" data-id="cjeybyub100005ou3r74pw6ve" class="article-share-link">Share</a>
       
       
     </footer>
@@ -133,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/14/hello-world/" data-id="cjeqj180t00008wu3y78mxm2s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/14/hello-world/" data-id="cjeybyubk00015ou33muw5i3n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -174,7 +184,7 @@
       <ul>
         
           <li>
-            <a href="/2018/03/14/first-post/">first post</a>
+            <a href="/2018/03/14/first-post/">RabbitMQ</a>
           </li>
         
           <li>
