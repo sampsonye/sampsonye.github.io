@@ -5,15 +5,20 @@
   
 
   
-  <title>零零壹的技术册</title>
+  <title>RabbitMQ简介与C#下如何使用 | 零零壹的技术册</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="零零壹的技术册">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="什么是消息队列 先进先出(FIFO) 是我们最了解的队列概念，消息队列对其进行了强大的扩充。  消息队列的使用场景 异步处理 通常为提高系统响应速度，提升体验，会将一部分无需立即返回的耗时操作存放到指定的队列中，并立即返回，后台服务程序异步获取这些操作并执行，从而提升体验。典型例子就是一般网站注册时都会给用户发送欢迎邮件或者短信，将欢迎信息放到队列中，注册请求立即返回后用户可以及早地进入系统，提升">
+<meta name="keywords" content="RabbitMQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RabbitMQ简介与C#下如何使用">
+<meta property="og:url" content="http://yoursite.com/2018/03/21/RabbitMQ/index.html">
 <meta property="og:site_name" content="零零壹的技术册">
+<meta property="og:description" content="什么是消息队列 先进先出(FIFO) 是我们最了解的队列概念，消息队列对其进行了强大的扩充。  消息队列的使用场景 异步处理 通常为提高系统响应速度，提升体验，会将一部分无需立即返回的耗时操作存放到指定的队列中，并立即返回，后台服务程序异步获取这些操作并执行，从而提升体验。典型例子就是一般网站注册时都会给用户发送欢迎邮件或者短信，将欢迎信息放到队列中，注册请求立即返回后用户可以及早地进入系统，提升">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-21T08:57:27.570Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="零零壹的技术册">
+<meta name="twitter:title" content="RabbitMQ简介与C#下如何使用">
+<meta name="twitter:description" content="什么是消息队列 先进先出(FIFO) 是我们最了解的队列概念，消息队列对其进行了强大的扩充。  消息队列的使用场景 异步处理 通常为提高系统响应速度，提升体验，会将一部分无需立即返回的耗时操作存放到指定的队列中，并立即返回，后台服务程序异步获取这些操作并执行，从而提升体验。典型例子就是一般网站注册时都会给用户发送欢迎邮件或者短信，将欢迎信息放到队列中，注册请求立即返回后用户可以及早地进入系统，提升">
   
     <link rel="alternate" href="/atom.xml" title="零零壹的技术册" type="application/atom+xml">
   
@@ -60,9 +65,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-RabbitMQ" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-RabbitMQ" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/21/RabbitMQ/" class="article-date">
   <time datetime="2018-03-21T07:41:39.000Z" itemprop="datePublished">2018-03-21</time>
@@ -75,8 +78,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/21/RabbitMQ/">RabbitMQ简介与C#下如何使用</a>
+    <h1 class="article-title" itemprop="name">
+      RabbitMQ简介与C#下如何使用
     </h1>
   
 
@@ -125,102 +128,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-first-post" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/14/first-post/" class="article-date">
-  <time datetime="2018-03-14T03:27:50.000Z" itemprop="datePublished">2018-03-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/14/first-post/">RabbitMQ</a>
-    </h1>
+    <a href="/2018/03/14/first-post/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">RabbitMQ</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Rabbitmq安装手册"><a href="#Rabbitmq安装手册" class="headerlink" title="Rabbitmq安装手册"></a>Rabbitmq安装手册</h1><h2 id="Windows下安装"><a href="#Windows下安装" class="headerlink" title="Windows下安装"></a>Windows下安装</h2><h3 id="一、准备条件"><a href="#一、准备条件" class="headerlink" title="一、准备条件"></a>一、准备条件</h3><p>下载rabbitmq：<a href="http://www.rabbitmq.com/download.html" target="_blank" rel="noopener">http://www.rabbitmq.com/download.html</a></p>
-<p>下载Erlang:<a href="http://www.erlang.org/downloads" target="_blank" rel="noopener">http://www.erlang.org/downloads</a></p>
-<h3 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h3><p>先安装Erlang，完全下一步即可，然后安装Rabbitmq，完全下一步即可。</p>
-<h3 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h3><p>开始菜单运行RabbitMQ Command Prompt.bat，输入rabbitmq-plugins enable rabbitmq_management来开启配置页。如果开启成功，在浏览器输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:15672</span><br><span class="line">账号：guest</span><br><span class="line">密码：guest</span><br></pre></td></tr></table></figure></p>
-<p>如果开启失败，下述两个方案均可：</p>
-<ol>
-<li>按顺序在Prompt中执行：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">rabbitmq-service stop</span><br><span class="line">rabbitmq-service remove</span><br><span class="line">rabbitmq-service install</span><br><span class="line">rabbitmq-service start</span><br><span class="line">//最后重新执行开启配置</span><br><span class="line">rabbitmq-plugins enable rabbitmq_management</span><br><span class="line">``` </span><br><span class="line">2. 删除rabbitmq数据文件夹下的文件，然后重新安装</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>打开文件夹C:\Users[用户名]\Roaming\RabbitMQ\db<br>删除其中内容<br>重新安装rabbitmq<br>//最后重新执行开启配置<br>rabbitmq-plugins enable rabbitmq_management<br><code>`</code></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/14/first-post/" data-id="cjf0uurh600041cu3jazhuoaw" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/14/hello-world/" class="article-date">
-  <time datetime="2018-03-14T03:10:11.525Z" itemprop="datePublished">2018-03-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/14/hello-world/" data-id="cjf0uurgr00031cu3i5kerr1i" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
